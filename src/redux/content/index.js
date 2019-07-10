@@ -7,7 +7,7 @@ const Content = props => {
 
 const mapStateToProps = state => {
     return {
-        count: state.count
+        count: state.count.count
     }
 }
 

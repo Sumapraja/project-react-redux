@@ -1,47 +1,27 @@
 import React from "react";
-import { createStore } from "redux";
+// import {render} from 'react-dom'
 import { Provider } from "react-redux";
+import store from './redux/JS/store/index'
 
+// import store from './redux/JS/store/index'
+import App from './redux/JS/components/presentation/App'
 import Content from './redux/content';
 import Counter from './redux/counter';
 import "./App.css";
+// import Form from './redux/JS/components/container/form
 
-const initialState = {
-  count: 0
-};
 
-const reducer = (state = initialState, action = {}) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return {
-        count: state.count + 1
-      };
-    case "DECREMENT":
-      return {
-        count: state.count - 1
-      };
-      case "RESET":
-          return {
-            count: 0
-          };
-    default:
-      return state;
-  }
-};
 
-const reduxStore = createStore(
-  reducer
-)
-
-function App() {
+function Apps() {
   return (
-    <Provider store={reduxStore}>
+    <Provider store={store}>
     <div className="App App-header">
      <Content/>
      <Counter/>
+     <App />
     </div>
     </Provider>
   );
 }
 
-export default App;
+export default Apps;
